@@ -7,7 +7,18 @@ h1 {
 #output-container, .demo {
     font-family: Menlo, 'Courier New', Courier, monospace;
 }
+
 .demo {
     border-bottom: 1px solid #ffffff;
     margin-bottom: 1.5em;
+}
+
+#btnFood {
+    height: 80px;
+    padding-top: 25px;
+}
+
+#btnBrewed {
+    height: 80px;
+    padding-top: 25px;
 }

@@ -3,7 +3,7 @@
 function getUserLocation() {
     if (navigator.geolocation) {
         var options = {
-            timeout: 60000
+            timeout: 6000
         };
         navigator.geolocation.getCurrentPosition(success, fail, options);
         output.innerHTML = "Checking your location...";
