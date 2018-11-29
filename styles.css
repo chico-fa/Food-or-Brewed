@@ -22,3 +22,16 @@ h1 {
     height: 80px;
     padding-top: 25px;
 }
+#map {
+    height: 100%;
+    width: 100%;
+    float: right;
+    color: black;
+
+}
+html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
