@@ -66,17 +66,11 @@ function createMarker(place) {
         }
     });
     console.log(place.name);
-    console.log(place.vicinity)
-    console.log(place.opening_hours.open_now)
-    console.log(place.rating)
+    console.log(place.vicinity);
+    console.log(place.opening_hours.open_now);
+    console.log(place.rating);
     console.log(marker.position);
-    map.setCenter(placeLoc)
-    setInfoWindow(marker, place.name, place.vicinity,)
-    // google.maps.event.addListener(marker, 'click', function () {
-    //     infowindow.setContent(place.name);
-    //     infowindow.open(map, this);
-    //     console.log(place.name)
-    // });
+    setInfoWindow(marker, place.name, place.vicinity)
 }
 
 function setInfoWindow(mark, name, vicinity, rating) {
