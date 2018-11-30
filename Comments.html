@@ -2,25 +2,46 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Comments</title>
-    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <title>Comments</title>
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+  
+  </head>
 
 <body>
-    <div id="content-creator">
-        <label>Title</label>
-        <br />
-        <input type="text" placeholder="Title" name="Title" id=Title />
-        <br />
-        <label>Body</label>
-        <br />
-        <textarea name="body" id="body" rows="5" placeholder="Body Text"></textarea>
-        <br />
-        <button id="submit-button">Submit</button>
+  <div class="container">
+    <div class="comment-box">
+      <div class="comment-form">
+        <div class="header">Add Your Comment</div>
+        <form>
+          <div>
+            <input type="text" id="name" placeholder="Name" />
+          </div>
+          <div>
+            <textarea id="comment" rows="3" cols="30" placeholder="Comment"></textarea>
+          </div>
+          <button id="submit-button" type="submit">SUBMIT</button>
+        </form>
+      </div>
+      <div>
+        <h4 class="header">Comments</h4>
+        <div id="comments"></div>
+      </div>
     </div>
+   <!--Conflict at this point-->add-comments
+  </div>
+  <div class="mb-3 mx-auto">
+    <a href="index.html" class="btn btn-info btn-lg btn-block" id="btnIndex" role="button">Home</a>
+</div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="app.js"></script>
+
     <div class="mb-3 mx-auto">
         <a href="index.html" class="btn btn-info btn-lg btn-block" id="btnIndex" role="button">Home</a>
     </div>
