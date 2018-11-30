@@ -35,3 +35,7 @@ html,
       margin: 0;
       padding: 0;
     }
+#info-bubble {
+    background-color: rgb(21,154,175);
+    color: white;
+}

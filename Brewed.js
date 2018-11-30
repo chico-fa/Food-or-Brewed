@@ -66,21 +66,23 @@ function createMarker(place) {
         }
     });
     console.log(place.name);
-    console.log(place.vicinity)
+    console.log(place.vicinity);
+    console.log(place.opening_hours.open_now);
+    console.log(place.rating);
     console.log(marker.position);
-    map.setCenter(placeLoc)
-    setInfoWindow(marker, place.name, place.vicinity,)
-    // google.maps.event.addListener(marker, 'click', function () {
-    //     infowindow.setContent(place.name);
-    //     infowindow.open(map, this);
-    //     console.log(place.name)
-    // });
+    setInfoWindow(marker, place.name, place.vicinity, place.rating, place.opening_hours.open_now)
 }
 
-function setInfoWindow(mark, name, vicinity,) {
+function setInfoWindow(mark, name, vicinity, rating, openNow) {
     google.maps.event.addListener(mark, 'click', function(event) {
         var iwindow = new google.maps.InfoWindow();
-        iwindow.setContent('<div id="info-bubble" style="padding:20px;border-radius:5px;max-width:260px;box-shadow:none;"><a href="" style="display:block;"><img src="" style="display:block;margin-bottom:10px;max-width:100%;"></a><h4>Name: ' + name +'<hr>Address: '+ vicinity +'</h4></div>');
+        //iwindow.setContent('<div id="info-bubble" style="padding:20px;border-radius:5px;max-width:260px;box-shadow:none;"><a href="" style="display:block;"><img src="" style="display:block;margin-bottom:10px;max-width:100%;"></a><h4>Name: ' + name +'<hr>Address: '+ vicinity +'<hr>Rating(1-5): '+ rating +'<hr>' + openNow +'</h4></div>');
         iwindow.open(map, this);
+        if (openNow === true) {
+            iwindow.setContent('<div id="info-bubble" style="padding:20px;border-radius:5px;max-width:260px;box-shadow:none;"><a href="" style="display:block;"><img src="" style="display:block;margin-bottom:10px;max-width:100%;"></a><h4>Name: ' + name +'<hr>Address: '+ vicinity +'<hr>Rating(1-5): '+ rating +'<hr><span style="color:green;">' + "Open" +'</span></h4></div>');
+        } else {
+            iwindow.setContent('<div id="info-bubble" style="padding:20px;border-radius:5px;max-width:260px;box-shadow:none;"><a href="" style="display:block;"><img src="" style="display:block;margin-bottom:10px;max-width:100%;"></a><h4>Name: ' + name +'<hr>Address: '+ vicinity +'<hr>Rating(1-5): '+ rating +'<hr><span style="color:red;">' + "Closed" +'</span></h4></div>');
+            console.log(name)
+        }
     });
-}//<hr>Open?: '+ opening_hours.open_now +
+}
