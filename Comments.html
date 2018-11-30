@@ -34,12 +34,77 @@
         <div id="comments"></div>
       </div>
     </div>
+   <!--Conflict at this point-->add-comments
   </div>
   <div class="mb-3 mx-auto">
     <a href="index.html" class="btn btn-info btn-lg btn-block" id="btnIndex" role="button">Home</a>
 </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="app.js"></script>
+
+    <div class="mb-3 mx-auto">
+        <a href="index.html" class="btn btn-info btn-lg btn-block" id="btnIndex" role="button">Home</a>
+    </div>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyD-fUNZAHs-oPkAKOHiJjRg8W-iXZKPkkw",
+            authDomain: "testproject7-43dd4.firebaseapp.com",
+            databaseURL: "https://testproject7-43dd4.firebaseio.com",
+            projectId: "testproject7-43dd4",
+            storageBucket: "testproject7-43dd4.appspot.com",
+            messagingSenderId: "328844792261"
+        };
+
+        firebase.initializeApp(config);
+
+        var database = firebase.database();
+
+
+
+        //Capture Button Click
+        $("#submit-button").on("click", function (event) {
+            event.preventDefault();
+
+            var title = $("#Title").val().trim();
+            var body = $("#body").val().trim();
+
+            //database.ref().set({
+            //title: title,
+            //body: body
+
+            var newComment = {
+                title: title,
+                comment: body
+            }
+            database.ref().push(newComment);
+            console.log(newComment.title)
+            console.log(newComment.comment)
+
+            alert("Thanks for your feedback!")
+            $("#Title").val("")
+            $("#body").val("")
+        });
+
+        //database.ref().on("value", function (snapshot)
+        database.ref().on("child_added", function (childSnapshot) {
+                console.log(childSnapshot)
+                var sv = snapshot.val().title;
+                var sv = snapshot.val().body;
+                //console.log(snapshot.val());
+                console.log(sv.title);
+                //console.log(snapshot.val().title);
+                console.log(sv.body);
+                //console.log(snapshot.val().body);
+            },
+
+            function (errorObject) {
+                console.log("Errors handled: " + errorObject.code);
+            }
+        );
+    </script>
 </body>
 
 </html>
