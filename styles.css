@@ -13,7 +13,9 @@ h1 {
     border-bottom: 1px solid #ffffff;
     margin-bottom: 1.5em;
 }
-
+#btnComments {
+    margin-bottom: 0px;
+}
 #btnFood {
     height: 80px;
     padding-top: 25px;
@@ -31,6 +33,11 @@ h1 {
     color: black;
 }
 
+#display {
+    height: 100%;
+    width: 106.6%
+}
+
 html,
 body {
     height: 100%;
@@ -38,7 +45,10 @@ body {
     padding: 0;
 }
 
-#info-bubble {
-    background-color: rgb(21, 154, 175);
+#popup {
+    background-color: #38414d;
     color: white;
+}
+.container {
+    height: 90%;
 }
