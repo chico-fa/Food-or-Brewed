@@ -25,6 +25,9 @@ h1 {
     height: 80px;
     padding-top: 25px;
 }
+#btnIndex {
+  float:top;
+}
 
 #map {
     height: 500px;
@@ -61,7 +64,11 @@ ul#list-display {
     margin-bottom: .5em;
   }
   
+<<<<<<< Updated upstream
   .comment-container {
+=======
+  comment-container {
+>>>>>>> Stashed changes
     font-family: "Roboto", sans-serif;
     height: 100%;
     margin-bottom: 50px;
@@ -71,7 +78,11 @@ ul#list-display {
   h4 {
     margin: 5px 20px;
   }
+<<<<<<< Updated upstream
   
+=======
+
+>>>>>>> Stashed changes
   hr {
     border: 0;
     height: 0;
