@@ -195,6 +195,12 @@ function createMarker(place) {
   console.log(place.opening_hours.open_now);
   console.log(place.rating);
   console.log(marker.position);
+  var resultList = $("<li>");
+  resultList.addClass("place-name");
+  resultList.attr("data-name", place.vicinity);
+  resultList.text(place.name);
+  // resultList.html("<a href=\"#\">" + place.name + "</a>");
+  $("#list-display").append(resultList);
   setInfoWindow(marker, place.name, place.vicinity, place.rating, place.opening_hours.open_now);
 }
 
