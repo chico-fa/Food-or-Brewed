@@ -7,86 +7,130 @@ function initMap() {
             lng: -104.990
         },
         zoom: 15,
-        styles: [
-            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
-            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
-            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
-            {
-              featureType: 'administrative.locality',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
+        styles: [{
+                elementType: 'geometry',
+                stylers: [{
+                    color: '#242f3e'
+                }]
             },
             {
-              featureType: 'poi',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
+                elementType: 'labels.text.stroke',
+                stylers: [{
+                    color: '#242f3e'
+                }]
             },
             {
-              featureType: 'poi.park',
-              elementType: 'geometry',
-              stylers: [{color: '#263c3f'}]
+                elementType: 'labels.text.fill',
+                stylers: [{
+                    color: '#746855'
+                }]
             },
             {
-              featureType: 'poi.park',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#6b9a76'}]
+                featureType: 'administrative.locality',
+                elementType: 'labels.text.fill',
+                stylers: [{
+                    color: '#d59563'
+                }]
             },
             {
-              featureType: 'road',
-              elementType: 'geometry',
-              stylers: [{color: '#38414e'}]
+                featureType: 'poi',
+                elementType: 'labels.text.fill',
+                stylers: [{
+                    color: '#d59563'
+                }]
             },
             {
-              featureType: 'road',
-              elementType: 'geometry.stroke',
-              stylers: [{color: '#212a37'}]
+                featureType: 'poi.park',
+                elementType: 'geometry',
+                stylers: [{
+                    color: '#263c3f'
+                }]
             },
             {
-              featureType: 'road',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#9ca5b3'}]
+                featureType: 'poi.park',
+                elementType: 'labels.text.fill',
+                stylers: [{
+                    color: '#6b9a76'
+                }]
             },
             {
-              featureType: 'road.highway',
-              elementType: 'geometry',
-              stylers: [{color: '#17a1b6'}]
+                featureType: 'road',
+                elementType: 'geometry',
+                stylers: [{
+                    color: '#38414e'
+                }]
             },
             {
-              featureType: 'road.highway',
-              elementType: 'geometry.stroke',
-              stylers: [{color: '#1f2835'}]
+                featureType: 'road',
+                elementType: 'geometry.stroke',
+                stylers: [{
+                    color: '#212a37'
+                }]
             },
             {
-              featureType: 'road.highway',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#f3d19c'}]
+                featureType: 'road',
+                elementType: 'labels.text.fill',
+                stylers: [{
+                    color: '#9ca5b3'
+                }]
             },
             {
-              featureType: 'transit',
-              elementType: 'geometry',
-              stylers: [{color: '#2f3948'}]
+                featureType: 'road.highway',
+                elementType: 'geometry',
+                stylers: [{
+                    color: '#17a1b6'
+                }]
             },
             {
-              featureType: 'transit.station',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
+                featureType: 'road.highway',
+                elementType: 'geometry.stroke',
+                stylers: [{
+                    color: '#1f2835'
+                }]
             },
             {
-              featureType: 'water',
-              elementType: 'geometry',
-              stylers: [{color: '#17263c'}]
+                featureType: 'road.highway',
+                elementType: 'labels.text.fill',
+                stylers: [{
+                    color: '#f3d19c'
+                }]
             },
             {
-              featureType: 'water',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#515c6d'}]
+                featureType: 'transit',
+                elementType: 'geometry',
+                stylers: [{
+                    color: '#2f3948'
+                }]
             },
             {
-              featureType: 'water',
-              elementType: 'labels.text.stroke',
-              stylers: [{color: '#17263c'}]
+                featureType: 'transit.station',
+                elementType: 'labels.text.fill',
+                stylers: [{
+                    color: '#d59563'
+                }]
+            },
+            {
+                featureType: 'water',
+                elementType: 'geometry',
+                stylers: [{
+                    color: '#17263c'
+                }]
+            },
+            {
+                featureType: 'water',
+                elementType: 'labels.text.fill',
+                stylers: [{
+                    color: '#515c6d'
+                }]
+            },
+            {
+                featureType: 'water',
+                elementType: 'labels.text.stroke',
+                stylers: [{
+                    color: '#17263c'
+                }]
             }
-          ]
+        ]
     });
     infoWindow = new google.maps.InfoWindow;
 
@@ -110,7 +154,7 @@ function initMap() {
                 type: ['bar']
 
             }, callback);
-       
+
         }, function () {
             handleLocationError(true, infoWindow, map.getCenter());
         });
@@ -141,8 +185,8 @@ function createMarker(place) {
     var marker = new google.maps.Marker({
         map: map,
         position: {
-          lat: place.geometry.location.lat(),
-          lng: place.geometry.location.lng()
+            lat: place.geometry.location.lat(),
+            lng: place.geometry.location.lng()
         }
     });
     console.log(place.name);
@@ -154,14 +198,14 @@ function createMarker(place) {
 }
 
 function setInfoWindow(mark, name, vicinity, rating, openNow) {
-    google.maps.event.addListener(mark, 'click', function(event) {
+    google.maps.event.addListener(mark, 'click', function (event) {
         var iwindow = new google.maps.InfoWindow();
         //iwindow.setContent('<div id="info-bubble" style="padding:20px;border-radius:5px;max-width:260px;box-shadow:none;"><a href="" style="display:block;"><img src="" style="display:block;margin-bottom:10px;max-width:100%;"></a><h4>Name: ' + name +'<hr>Address: '+ vicinity +'<hr>Rating(1-5): '+ rating +'<hr>' + openNow +'</h4></div>');
         iwindow.open(map, this);
         if (openNow === true) {
-            iwindow.setContent('<div id="info-bubble" style="padding:20px;border-radius:5px;max-width:260px;box-shadow:none;"><a href="" style="display:block;"><img src="" style="display:block;margin-bottom:10px;max-width:100%;"></a><h4>Name: ' + name +'<hr>Address: '+ vicinity +'<hr>Rating(1-5): '+ rating +'<hr><span style="color:green;">' + "Open" +'</span></h4></div>');
+            iwindow.setContent('<div id="info-bubble" style="padding:20px;border-radius:5px;max-width:260px;box-shadow:none;"><a href="" style="display:block;"><img src="" style="display:block;margin-bottom:10px;max-width:100%;"></a><h4>Name: ' + name + '<hr>Address: ' + vicinity + '<hr>Rating(1-5): ' + rating + '<hr><span style="color:green;">' + "Open" + '</span></h4></div>');
         } else {
-            iwindow.setContent('<div id="info-bubble" style="padding:20px;border-radius:5px;max-width:260px;box-shadow:none;"><a href="" style="display:block;"><img src="" style="display:block;margin-bottom:10px;max-width:100%;"></a><h4>Name: ' + name +'<hr>Address: '+ vicinity +'<hr>Rating(1-5): '+ rating +'<hr><span style="color:red;">' + "Closed" +'</span></h4></div>');
+            iwindow.setContent('<div id="info-bubble" style="padding:20px;border-radius:5px;max-width:260px;box-shadow:none;"><a href="" style="display:block;"><img src="" style="display:block;margin-bottom:10px;max-width:100%;"></a><h4>Name: ' + name + '<hr>Address: ' + vicinity + '<hr>Rating(1-5): ' + rating + '<hr><span style="color:red;">' + "Closed" + '</span></h4></div>');
             console.log(name)
         }
     });
