@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Comments</title>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+</head>
+
+<body>
+    <div id="content-creator">
+        <label>Title</label>
+        <br />
+        <input type="text" placeholder="Title" name="Title" id=Title />
+        <br />
+        <label>Body</label>
+        <br />
+        <textarea name="body" id="body" rows="5" placeholder="Body Text"></textarea>
+        <br />
+        <button id="submit-button">Submit</button>
+    </div>
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyD-fUNZAHs-oPkAKOHiJjRg8W-iXZKPkkw",
+            authDomain: "testproject7-43dd4.firebaseapp.com",
+            databaseURL: "https://testproject7-43dd4.firebaseio.com",
+            projectId: "testproject7-43dd4",
+            storageBucket: "testproject7-43dd4.appspot.com",
+            messagingSenderId: "328844792261"
+        };
+
+        firebase.initializeApp(config);
+
+        var database = firebase.database();
+
+
+
+        //Capture Button Click
+        $("#submit-button").on("click", function (event) {
+            event.preventDefault();
+
+            var title = $("#Title").val().trim();
+            var body = $("#body").val().trim();
+
+            //database.ref().set({
+            //title: title,
+            //body: body
+
+            var newComment = {
+                title: title,
+                comment: body
+            }
+            database.ref().push(newComment);
+            console.log(newComment.title)
+            console.log(newComment.comment)
+
+            alert("Thanks for your feedback!")
+        });
+
+        //database.ref().on("value", function (snapshot)
+        database.ref().on("child_added", function (childSnapshot) {
+                console.log(childSnapshot)
+                var sv = snapshot.val().title;
+                var sv = snapshot.val().body;
+                //console.log(snapshot.val());
+                console.log(sv.title);
+                //console.log(snapshot.val().title);
+                console.log(sv.body);
+                //console.log(snapshot.val().body);
+            },
+
+            function (errorObject) {
+                console.log("Errors handled: " + errorObject.code);
+            }
+        );
+    </script>
+</body>
+
+</html>
